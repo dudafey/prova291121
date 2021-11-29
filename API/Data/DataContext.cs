@@ -14,6 +14,7 @@ namespace API.Data
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<ItemVenda> ItensVenda { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<MeioPagamento> MeiosPagamento { get; set; }
         public DbSet<Venda> Vendas { get; set; }
 
     }

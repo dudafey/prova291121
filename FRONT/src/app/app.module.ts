@@ -22,12 +22,14 @@ import { IndexComponent } from "./components/views/home/index/index.component";
 import { CadastrarProdutoComponent } from "./components/views/produto/cadastrar-produto/cadastrar-produto.component";
 import { ListarProdutoComponent } from "./components/views/produto/listar-produto/listar-produto.component";
 import { CarrinhoComponent } from './components/views/home/carrinho/carrinho.component';
+import { CadastrarVendaComponent } from "./components/views/produto/cadastrar-venda/cadastrar-venda.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         ListarProdutoComponent,
         CadastrarProdutoComponent,
+        CadastrarVendaComponent,
         TemplateComponent,
         IndexComponent,
         CarrinhoComponent,
