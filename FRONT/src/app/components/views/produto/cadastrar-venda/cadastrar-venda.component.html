@@ -7,36 +7,14 @@
             <mat-label for="nome">Nome:</mat-label>
             <input matInput type="text" name="nome" [(ngModel)]="nome" />
         </mat-form-field>
-        <mat-form-field class="input" id="descricao">
-            <mat-label for="descricao">Descrição:</mat-label>
-            <input
-                matInput
-                type="text"
-                name="descricao"
-                [(ngModel)]="descricao"
-            />
-        </mat-form-field>
-        <mat-form-field class="input" id="quantidade">
-            <mat-label for="quantidade">Quantidade:</mat-label>
-            <input
-                matInput
-                type="text"
-                name="quantidade"
-                [(ngModel)]="quantidade"
-            />
-        </mat-form-field>
-        <mat-form-field class="input" id="preco">
-            <mat-label for="preco">Preço:</mat-label>
-            <input matInput type="text" name="preco" [(ngModel)]="preco" />
-        </mat-form-field>
-        <mat-form-field class="input" id="categoria">
-            <mat-label for="categoria">Categoria:</mat-label>
-            <mat-select name="categoria" [(ngModel)]="categoriaId">
+        <mat-form-field class="input" id="mPagamentoId">
+            <mat-label for="mPagamentoId">Meio Pagamento:</mat-label>
+            <mat-select name="mPagamentoId" [(ngModel)]="mPagamentoId">
                 <mat-option
-                    *ngFor="let categoria of categorias"
-                    value="{{ categoria.categoriaId }}"
+                    *ngFor="let mPagamento of mPagamentos"
+                    value="{{ mPagamento.MeioPagamentoId }}"
                 >
-                    {{ categoria.nome }}
+                    {{ mPagamento.MetodoDePagamento }}
                 </mat-option>
             </mat-select>
         </mat-form-field>

@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { Categoria } from "src/app/models/categoria";
-import { Produto } from "src/app/models/produto";
-import { CategoriaService } from "src/app/services/categoria.service";
-import { ProdutoService } from "src/app/services/produto.service";
+import { MeioPagamento } from "src/app/models/meio-pagamento";
+import { Venda } from "src/app/models/venda";
+import { MeioPagamentoService } from "src/app/services/meio-pagamento.service";
+import { VendaService } from "src/app/services/venda.service";
+
 
 @Component({
     selector: "app-cadastrar-venda",
@@ -12,35 +12,29 @@ import { ProdutoService } from "src/app/services/produto.service";
 })
 export class CadastrarVendaComponent implements OnInit {
     nome!: string;
-    descricao!: string;
-    quantidade!: number;
-    preco!: number;
-    categorias!: Categoria[];
-    categoriaId!: number;
+    mPagamentos!: MeioPagamento[];
+    mPagamentoId!: number;
 
     constructor(
-        private router: Router,
-        private produtoService: ProdutoService,
-        private categoriaService: CategoriaService
+        private vendaService: VendaService,
+        private meioPagamentoService: MeioPagamentoService
     ) {}
 
     ngOnInit(): void {
-        this.categoriaService.list().subscribe((categorias) => {
-            this.categorias = categorias;
+        this.meioPagamentoService.list().subscribe((mPagamentos) => {
+           
+            this.mPagamentos = mPagamentos;
+            console.log("teste", this.mPagamentos)
         });
     }
 
     cadastrar(): void {
-        let produto: Produto = {
-            nome: this.nome,
-            descricao: this.descricao,
-            preco: this.preco,
-            quantidade: this.quantidade,
-            categoriaId: this.categoriaId,
+        let venda: Venda = {
+            cliente: this.nome,
+            meioPagamento: this.mPagamentoId
         };
-        this.produtoService.create(produto).subscribe((produto) => {
-            console.log(produto);
-            this.router.navigate(["produto/listar"]);
+        this.vendaService.create(venda).subscribe((resultado) => {
+            console.log(resultado);
         });
     }
 }

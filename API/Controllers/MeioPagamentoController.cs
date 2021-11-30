@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    [ApiController]
+    [Route("api/meio-pagamento")]
     public class MeioPagamentoController : Controller
     {
 
@@ -29,5 +31,8 @@ namespace API.Controllers
             _context.SaveChanges();
             return Created("", meioPagamento);
         }
+        [HttpGet]
+        [Route("list")]
+        public IActionResult Create() => Ok(_context.MeiosPagamento.ToList());
     }
 }
